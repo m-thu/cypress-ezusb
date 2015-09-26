@@ -1,3 +1,13 @@
+loader
+*.lst
+*.rel
+*.sym
+*.ihx
+*.bin
+
+*.swp
+*~
+
 # Object files
 *.o
 *.ko
