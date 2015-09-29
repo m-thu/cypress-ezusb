@@ -26,15 +26,6 @@ IOB.5 = 0H95
 IOB.6 = 0H96
 IOB.7 = 0H97
 
-; autopointer 1 address high
-AUTOPTRH1 = 0H9A
-; autopointer 1 address low
-AUTOPTRL1 = 0H9B
-; autopointer 2 address high
-AUTOPTRH2 = 0H9D
-; autopointer 2 address low
-AUTOPTRL2 = 0H9E
-
 ; port C (bit addressable)
 IOC = 0HA0
 IOC.0 = 0HA0
@@ -45,19 +36,6 @@ IOC.4 = 0HA4
 IOC.5 = 0HA5
 IOC.6 = 0HA6
 IOC.7 = 0HA7
-
-; interrupt 2 clear
-INT2CLR = 0HA1
-; interrupt 4 clear
-INT4CLR = 0HA2
-; endpoints 2,4,6,8 status flags
-EP2468STAT = 0HAA
-; endpoints 2, 4 slave FIFO status flags
-EP24FIFOFLGS = 0HAB
-; endpoints 6, 8 slave FIFO status flags
-EP68FIFOFLGS = 0HAC
-; autopointers 1 and 2 setup
-AUTOPTRSETUP = 0HAF
 
 ; port D (bit addressable)
 IOD = 0HB0
@@ -84,16 +62,67 @@ OED = 0HB5
 ; port E output enable
 OEE = 0HB6
 
-; endpoint 0 and 1 status
+; 0x80 -- 0x87
+DPL0 = 0H82
+DPH0 = 0H83
+DPL1 = 0H84
+DPH1 = 0H85
+DPS = 0H86
+
+; 0x87 -- 0x8f
+CKCON = 0H8E
+
+; 0x90 -- 0x97
+EXIF = 0H91
+MPAGE = 0H92
+
+; 0x98 -- 0x9f
+SCON0 = 0H98
+SBUF0 = 0H99
+AUTOPTRH1 = 0H9A
+AUTOPTRL1 = 0H9B
+AUTOPTRH2 = 0H9D
+AUTOPTRL2 = 0H9E
+
+; 0xa0 -- 0xa7
+INT2CLR = 0HA1
+INT4CLR = 0HA2
+
+; 0xa8 -- 0xaf
+EP2468STAT = 0HAA
+EP24FIFOFLGS = 0HAB
+EP68FIFOFLGS = 0HAC
+AUTOPTR-SETUP = 0HAF
+
+; 0xb0 -- 0xb7
+
+; 0xb8 -- 0xbf
 EP01STAT = 0HBA
-; endpoint 2,4,6,8 GPIF slave FIFO trigger
 GPIFTRIG = 0HBB
-; GPIF data high (16-bit mode only)
 GPIFSGLDATH = 0HBD
-; GPIF data low w/trigger
 GPIFSGLDATLX = 0HBE
-; GPIF data low w/no trigger
 GPIFSGLDATLNOX = 0HBF
+
+; 0xc0 -- 0xc7
+SCON1 = 0HC0
+SBUF1 = 0HC1
+
+; 0xc8 -- 0xcf
+
+; 0xd0 -- 0xd7
+
+; 0xd8 -- 0xdf
+EICON = 0HD8
+
+; 0xe0 -- 0xe7
+
+; 0xe8 -- 0xef
+EIE = 0HE8
+
+; 0xf0 -- 0xf7
+
+; 0xf8 -- 0xff
+EIP = 0HF8
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; general configuration registers
