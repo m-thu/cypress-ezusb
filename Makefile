@@ -19,7 +19,7 @@ MAKEBIN:=makebin
 all: loader toggle.bin
 
 loader: main.c
-	$(CC) $(CFLAGS) main.c -lusb-1.0 -pedantic -Wall -Wextra -o loader
+	$(CC) $(CFLAGS) main.c `pkg-config --libs --cflags libusb-1.0` -pedantic -Wall -Wextra -o loader
 
 toggle.s: cypress.inc
 

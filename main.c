@@ -12,7 +12,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <libusb-1.0/libusb.h>
+#include <libusb.h>
 
 /* default VID, PID */
 #define VID 0x04b4 /* Cypress Semiconductor */
