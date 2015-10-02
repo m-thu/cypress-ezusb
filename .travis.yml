@@ -1,0 +1,8 @@
+language: c
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq sdcc libusb-1.0-0-dev
+
+script:
+  - "make all"
