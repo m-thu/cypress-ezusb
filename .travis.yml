@@ -3,6 +3,7 @@ language: c
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq sdcc libudev-dev
-  - git clone https://github.com/libusb/libusb.git; cd libusb; ./autogen.sh; ./configure; make; sudo make install
+  - cd ..; git clone https://github.com/libusb/libusb.git; cd libusb; ./autogen.sh; ./configure; make; sudo make install; cd ..; cd cypress-ezusb
+
 script:
   - "make all"
