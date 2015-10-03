@@ -2,8 +2,10 @@
 
 .include "cypress.inc"
 
-; reset vector
+.area DSEG (REL)
+
 .area CODE (ABS)
+; reset vector
 .org 0h0000
 
 ; disable all interrupts
