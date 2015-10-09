@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	libusb_context *ctx;
 	libusb_device_handle *handle;
 	int ret;
-	uint8_t buf[RAMSIZE];/*, ram[RAMSIZE];*/
+	uint8_t buf[RAMSIZE], ram[RAMSIZE];
 	int fd, i;
 
 	if (argc != 2) {
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 	/* reset 8051
 	 * bmRequest: 0x40 (Vendor Request OUT)
 	 * bRequest : 0xa0 (Firmware Load)
-	 * Adress   : 0xe600 (CPUCS register) */
+	 * Address  : 0xe600 (CPUCS register) */
 	buf[0] = 0x01;
 	if ((ret = libusb_control_transfer(handle, 0x40, 0xa0, 0xe600, 0x00,
 	                                   buf, 1, 1000)) != 1) {
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 	close(fd);
 
 	/* upload binary to 8051 RAM */
-	for (i = 0; i < 3; ++i) {
+	for (i = 0; i < 4; ++i) {
 		/* maximum data size for control transfer = 4 kiB */
 		ret = libusb_control_transfer(handle, 0x40, 0xa0, i*4*1024,
 		                              0x00, buf+i*4*1024, 4*1024, 1000);
@@ -100,9 +100,8 @@ int main(int argc, char *argv[])
 		}
 	}
 
-#if 0
 	/* verify uploaded code */
-	for (i = 0; i < 3; ++i) {
+	for (i = 0; i < 4; ++i) {
 		ret = libusb_control_transfer(handle, 0xc0, 0xa0, i*4*1024,
 		                              0x00, ram+i*4*1024, 4*1024, 1000);
 		if (ret != 4*1024) {
@@ -122,7 +121,6 @@ int main(int argc, char *argv[])
 			/*exit(1);*/
 		}
 	}
-#endif
 
 	/* run 8051 */
 	buf[0] = 0x00;
