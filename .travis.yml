@@ -3,7 +3,7 @@ language: c
 before_install:
   - sudo apt-get update -qq >/dev/null
   - sudo apt-get install -qq libudev-dev libboost-all-dev >/dev/null
-  - cd ..; wget 'http://freefr.dl.sourceforge.net/project/sdcc/sdcc/3.5.0/sdcc-src-3.5.0.tar.bz2' -O sdcc.tar.bz2; tar xjf sdcc.tar.bz2; cd sdcc-3.5.0; ./configure --disable-pic14-port --disable-pic16-port >/dev/null; make >/dev/null; sudo make install >/dev/null; cd ..; cd cypress-ezusb
+  - cd ..; wget 'http://freefr.dl.sourceforge.net/project/sdcc/sdcc/3.5.0/sdcc-src-3.5.0.tar.bz2' -O sdcc.tar.bz2; tar xjf sdcc.tar.bz2; cd sdcc-3.5.0; ./configure --disable-pic14-port --disable-pic16-port --disable-z80-port --disable-z180-port --disable-r2k-port --disable-r3ka-port --disable-gbz80-port --disable-tlcs90-port --disable-ds390-port --disable-ds400-port --disable-hc08-port --disable-s08-port --disable-stm8-port --disable-ucsim >/dev/null; make >/dev/null; sudo make install >/dev/null; cd ..; cd cypress-ezusb
   - cd ..; git clone https://github.com/libusb/libusb.git; cd libusb; ./autogen.sh >/dev/null; ./configure >/dev/null; make >/dev/null; sudo make install >/dev/null; cd ..; cd cypress-ezusb
 
 script:
