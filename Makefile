@@ -21,8 +21,8 @@ all: loader toggle.bin uart.bin
 loader: main.c
 	$(CC) $(CFLAGS) main.c `pkg-config --libs libusb-1.0` -pedantic -Wall -Wextra -o loader
 
-toggle.s: cypress.inc
-uart.s: cypress.inc
+toggle.rel: cypress.inc
+uart.rel: cypress.inc
 
 clean:
 	rm -f loader
